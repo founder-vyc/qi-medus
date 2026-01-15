@@ -118,7 +118,13 @@ docker ps | grep redis
 If using Supabase:
 1. Create a new project at [supabase.com](https://supabase.com)
 2. Copy the database URL and API keys to your .env files
-3. Run migrations if available
+3. Run the database migrations manually:
+   - Open the [SUPABASE_MANUAL_MIGRATIONS.sql](./SUPABASE_MANUAL_MIGRATIONS.sql) file
+   - Copy the entire contents
+   - Paste into your Supabase SQL Editor
+   - Run the migrations
+   - See [SUPABASE_MIGRATIONS_README.md](./SUPABASE_MIGRATIONS_README.md) for detailed instructions
+
 
 ## Running the Application
 

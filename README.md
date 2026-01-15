@@ -39,6 +39,13 @@ Midday is an all-in-one tool designed to help freelancers, contractors, consulta
 
 We are working on the documentation to get started with Midday for local development: https://docs.midday.ai
 
+### Database Setup
+
+For manual database migrations in Supabase, see:
+- **[SUPABASE_MANUAL_MIGRATIONS.sql](./SUPABASE_MANUAL_MIGRATIONS.sql)** - All-in-one SQL file to run in Supabase
+- **[SUPABASE_MIGRATIONS_README.md](./SUPABASE_MIGRATIONS_README.md)** - Detailed migration guide
+- **[MIGRATIONS_QUICK_REFERENCE.md](./MIGRATIONS_QUICK_REFERENCE.md)** - Quick reference table
+
 ## App Architecture
 
 - Monorepo
