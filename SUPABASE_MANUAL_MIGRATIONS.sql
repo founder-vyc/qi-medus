@@ -6,12 +6,21 @@
 -- 
 -- IMPORTANT: Run these migrations in the exact order shown below.
 -- Some migrations depend on previous ones.
+-- 
+-- PREREQUISITES:
+-- These migrations assume your base schema is already set up with:
+-- - Base tables: teams, users, customers, invoices, invoice_templates, etc.
+-- - Base enums: reportTypes, invoice_status, activity_type, etc.
+-- 
+-- If you encounter errors about missing types or tables, ensure your
+-- application's initial schema has been applied first.
 -- =====================================================
 
 -- =====================================================
 -- Migration 0001: Add Report Types
 -- =====================================================
 -- Add new report types to the reportTypes enum
+-- NOTE: reportTypes uses camelCase from the base schema
 
 ALTER TYPE "reportTypes" ADD VALUE IF NOT EXISTS 'monthly_revenue';
 ALTER TYPE "reportTypes" ADD VALUE IF NOT EXISTS 'revenue_forecast';
@@ -99,6 +108,7 @@ CREATE INDEX IF NOT EXISTS teams_stripe_account_id_idx ON teams(stripe_account_i
 -- Migration 0009: Add Refunded Status
 -- =====================================================
 -- Allows invoices to have a distinct "refunded" status when payment is refunded
+-- NOTE: Adds value to existing invoice_status enum (must exist in base schema)
 
 ALTER TYPE invoice_status ADD VALUE IF NOT EXISTS 'refunded';
 
@@ -325,6 +335,7 @@ ALTER TYPE invoice_recurring_frequency ADD VALUE IF NOT EXISTS 'semi_annual';
 ALTER TYPE invoice_recurring_frequency ADD VALUE IF NOT EXISTS 'annual';
 
 -- Add recurring_invoice_upcoming to activity_type enum for 24-hour advance notifications
+-- NOTE: Adds value to existing activity_type enum (must exist in base schema)
 ALTER TYPE activity_type ADD VALUE IF NOT EXISTS 'recurring_invoice_upcoming';
 
 
