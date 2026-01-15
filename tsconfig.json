@@ -1,1 +1,3 @@
-404: Not Found
+{
+  "extends": "@midday/tsconfig/base.json"
+}
